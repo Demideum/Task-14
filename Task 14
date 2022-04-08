@@ -1,0 +1,92 @@
+namespace IJunior_Task14
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string userInput;
+
+            Console.WriteLine("Добро пожаловать в редактор консоли! \n\nДля продолжени нажмите любую клавишу, для выхода #");
+
+            Console.WriteLine();
+
+            userInput = Console.ReadLine();
+
+            while (userInput != "#")
+            {
+                Console.WriteLine("\n1 - Изменение цвета текста;");
+                Console.WriteLine("2 - Изменение цвета фона;");
+                Console.WriteLine("3 - Изменение ширины консоли;");
+                Console.WriteLine("4 - Изменение высоты консоли;");
+                Console.WriteLine("5 - Очистка консоли и сброс цветовых настроек;");
+                Console.WriteLine("# - Выход.");
+
+                userInput = Console.ReadLine();
+
+                switch (userInput)
+                {
+                    case "1":
+                        Console.WriteLine("\nИзменение цвета текста.");
+                        Console.WriteLine("\nНа какой цвет вы хотите изменить цвет текста: \n1 - Красный; \n2 - Желтый; \n3 - Зеленый.");
+                        userInput = Console.ReadLine();
+                        switch (userInput)
+                        {
+                            case "1":
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                break;
+                            case "2":
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                break;
+                            case "3":
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                break;
+                        }
+                        break;
+
+                    case "2":
+                        Console.WriteLine("\nИзменение цвета фона.");
+                        Console.WriteLine("\nНа какой цвет вы хотите изменить фон: \n1 - Белый; \n2 - Синий; \n3 - Серый.");
+                        userInput = Console.ReadLine();
+                        switch (userInput)
+                        {
+                            case "1":
+                                Console.BackgroundColor = ConsoleColor.White;
+                                break;
+                            case "2":
+                                Console.BackgroundColor = ConsoleColor.Blue;
+                                break;
+                            case "3":
+                                Console.BackgroundColor = ConsoleColor.Gray;
+                                break;
+                        }
+                        break;
+
+                    case "3":
+                        Console.WriteLine("\nИзменение ширины консоли.");
+                        Console.WriteLine("\nВведите ширину консоли: ");
+                        userInput = Console.ReadLine();
+                        Console.WindowWidth = Convert.ToInt32(userInput);
+                        break;
+
+                    case "4":
+                        Console.WriteLine("\nИзменение высоты консоли.");
+                        Console.WriteLine("\nВведите высоту консоли: ");
+                        userInput = Console.ReadLine();
+                        Console.WindowHeight = Convert.ToInt32(userInput);
+                        break;
+
+                    case "5":
+                        Console.WriteLine("\nОчистка консоли и сброс цветовых настроек");
+                        Console.ResetColor();
+                        Console.Clear();
+                        break;
+
+                    case "#":
+                        Console.WriteLine("\nВыход");
+                        break;
+                }
+            }
+            Console.WriteLine("Спасибо что были с нами! Ждем вас снова!");
+        }
+    }
+}
